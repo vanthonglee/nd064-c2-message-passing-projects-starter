@@ -5,7 +5,7 @@ class Persons extends Component {
   constructor(props) {
     super(props);
     // TODO: endpoint should be abstracted into a config variable
-    this.endpoint_url = "http://ow2.cloudokyo.dev:30001/api/persons";
+    this.endpoint_url = "ec2-54-144-90-21.compute-1.amazonaws.com:30001/api/persons";
     this.state = {
       persons: [],
       display: null,
