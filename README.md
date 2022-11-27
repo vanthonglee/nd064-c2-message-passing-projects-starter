@@ -83,12 +83,12 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
 1. `kubectl apply -f deployment/configmaps/` - Set up environment variables for the pods
 2. `kubectl apply -f deployment/secrets/` - Set up secrets for the pods
 3. `kubectl apply -f deployment/postgres.yaml` - Set up a Postgres database running PostGIS
-6. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
-4. `kubectl apply -f deployment/udaconnect-api.yaml` - Set up the service and deployment for the API
-5. `kubectl apply -f deployment/udaconnect-app.yaml` - Set up the service and deployment for the web app
-6. `kubectl apply -f deployment/udaconnect-persons-api.yaml` - Set up the service and deployment for the Persons API
-7. `kubectl apply -f deployment/udaconnect-connections-api.yaml` - Set up the service and deployment for the Connections API
-10. Setup the messaging queue as follows
+4. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
+5. `kubectl apply -f deployment/udaconnect-api.yaml` - Set up the service and deployment for the API
+6. `kubectl apply -f deployment/udaconnect-app.yaml` - Set up the service and deployment for the web app
+7. `kubectl apply -f deployment/udaconnect-persons-api.yaml` - Set up the service and deployment for the Persons API
+8. `kubectl apply -f deployment/udaconnect-connections-api.yaml` - Set up the service and deployment for the Connections API
+9. Setup the messaging queue as follows
     ```bash
       # Install helm on the guest VM
       curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -119,8 +119,8 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
           --replication-factor 1 --partitions 1 \
           --topic $TOPIC
     ```
-11. `kubectl apply -f deployment/udaconnect-location-consumer.yaml` - Set up the location consumer service
-12. `kubectl apply -f deployment/udaconnect-location-producer.yaml` - Set up the location producer service
+10. `kubectl apply -f deployment/udaconnect-location-consumer.yaml` - Set up the location consumer service
+11. `kubectl apply -f deployment/udaconnect-location-producer.yaml` - Set up the location producer service
 
 Manually applying each of the individual `yaml` files is cumbersome but going through each step provides some context on the content of the starter project. In practice, we would have reduced the number of steps by running the command against a directory to apply of the contents: `kubectl apply -f deployment/`.
 
