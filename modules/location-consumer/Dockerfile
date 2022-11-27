@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM --platform=linux/amd64 python:3.8-slim-buster
 
 WORKDIR .
 
@@ -6,4 +6,4 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
-CMD ["python", "consumer.py"]
+CMD ["python", "location_consumer.py"]

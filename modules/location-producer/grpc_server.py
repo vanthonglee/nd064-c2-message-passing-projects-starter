@@ -4,7 +4,7 @@ import location_pb2_grpc
 
 from concurrent import futures
 
-from utils import publish_location
+from utils import publish_location, logger
 
 class LocationProducerServicer(location_pb2_grpc.LocationServiceServicer):
     def Create(self, request, context):
@@ -14,7 +14,8 @@ class LocationProducerServicer(location_pb2_grpc.LocationServiceServicer):
             "longitude": request.longitude
         }
 
-        print(f"Payload:{payload} ")
+        print(f"Request Payload:{payload} ")
+        logger.info("Request Payload: ", payload)
 
         publish_location(payload)
         return location_pb2.LocationMessage(**payload)

@@ -17,17 +17,14 @@ producer = KafkaProducer(bootstrap_servers=[KAFKA_SERVER])
 
 
 def publish_location(location_data):
-    print(f"Sending data to Kafka:{location_data}")
-
+    logger.info('Sending data to kafa broker before encoded: ', location_data)
     encoded_data = json.dumps(location_data).encode('utf-8')
-    print(f"Sending data to Kafka:{encoded_data}")
+    logger.info('Sending data to kafa broker after encoded: ', location_data)
+    
     producer.send(TOPIC_NAME, encoded_data)
     producer.flush()
 
     logger.info(f"Successfully uploaded location data {location_data} to Kafka.")
-
-
-
 
 
 

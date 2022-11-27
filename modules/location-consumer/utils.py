@@ -14,7 +14,7 @@ DB_NAME = os.environ["DB_NAME"]
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("udaconnect-location-service")
+logger = logging.getLogger("udaconnect-location-consumer")
 
 
 def save_location(location):

@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM --platform=linux/amd64 python:3.8-slim-buster
 
 WORKDIR .
 
@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5005
 
 COPY . .
-CMD ["python", "main.py"]
+CMD ["python", "grpc_server.py"]
