@@ -1,0 +1,5 @@
+For ingesting a large volume of location data from mobile devices, gRPC was chosen as the message passing mode. In order to reduce overall payload sizes and connection overhead, it was decided to take advantage of gRPC's improved performance. By doing this, we can make sure that our solution is capable of handling the large amount of location data that will be sent from various mobile devices. Additionally, gRPC supports more secure connections than REST APIs do.
+
+To handle ingested location data, the location producer service utilizes a message queue (Kafka). This will facilitate system decoupling and improve performance and reliability (without losing ingested data).
+
+REST APIs are used by the frontend client to integrate with different HTTP routes. REST was selected because it is the most well-known and simple message passing technique.

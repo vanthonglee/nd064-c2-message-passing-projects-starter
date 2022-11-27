@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+message LocationMessage {
+    int32 person_id = 1;
+    string latitude = 2;
+    string longitude = 3;
+}
+
+service LocationService {
+    rpc Create(LocationMessage) returns (LocationMessage);
+}
+
+=======================================================================================================================
+
+The gRPC server is hosted by the 'udaconnect-location-producer' pod on port 5005.
+
+A gRPC client example 'grpc_client.py' has been provided in the 'udaconnect-location-producer' pod as an example of sending location information.
+
+Run the following commands to test:
+
+```bash
+kubectl exec -it <POD_LOCATION_PRODUCER> sh
+
+python grpc_client.py
+```
+
+

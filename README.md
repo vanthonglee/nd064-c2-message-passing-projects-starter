@@ -1,5 +1,6 @@
 # UdaConnect
 ## Overview
+Link production hosted on AWS EC2: http://ec2-54-87-20-150.compute-1.amazonaws.com:30000/
 ### Background
 Conferences and conventions are hotspots for making connections. Professionals in attendance often share the same interests and can make valuable business and personal connections with one another. At the same time, these events draw a large crowd and it's often hard to make these connections in the midst of all of these events' excitement and energy. To help attendees make connections, we are building the infrastructure for a service that can inform attendees if they have attended the same booths and presentations at an event.
 
@@ -18,6 +19,9 @@ To do so, ***you will refactor this application into a microservice architecture
 * [Vagrant](https://www.vagrantup.com/) - Tool for managing virtual deployed environments
 * [VirtualBox](https://www.virtualbox.org/) - Hypervisor allowing you to run multiple operating systems
 * [K3s](https://k3s.io/) - Lightweight distribution of K8s to easily develop against a local cluster
+### Architecture Diagrams
+
+![Architecture Design](docs/architecture_design.png)
 
 ## Running the app
 The project has been set up such that you should be able to have the project up and running with Kubernetes.
@@ -88,15 +92,33 @@ Manually applying each of the individual `yaml` files is cumbersome but going th
 Note: The first time you run this project, you will need to seed the database with dummy data. Use the command `sh scripts/run_db_command.sh <POD_NAME>` against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`). Subsequent runs of `kubectl apply` for making changes to deployments or services shouldn't require you to seed the database again!
 
 ### Verifying it Works
-Once the project is up and running, you should be able to see 3 deployments and 3 services in Kubernetes:
-`kubectl get pods` and `kubectl get services` - should both return `udaconnect-app`, `udaconnect-api`, and `postgres`
+Once the project is up and running, you should be able to see 9 deployments and 9+ services in Kubernetes:
+
+- `kubectl get pods` should return a list similar to the image below:
+  
+  ![Running pods](docs/pods_screenshot.png)
+- `kubectl get services` should return a list similar to the image below:
+  
+  ![Running pods](docs/services_screenshot.png)
 
 
 These pages should also load on your web browser:
-* `ec2-54-144-90-21.compute-1.amazonaws.com:30001/` - OpenAPI Documentation
-* `ec2-54-144-90-21.compute-1.amazonaws.com:30001/api/` - Base path for API
-* `http://localhost:30000/` - Frontend ReactJS Application
+* `http://locahost:30001/` - OpenAPI Documentation
+* `http://locahost:30001/api/` - Base path for API
+* `http://locahost:30002/` - OpenAPI Documentation for Person API
+* `http://locahost:30002/api/persons` - Base path for Person API
+* `http://locahost:30003/` - OpenAPI Documentation for Connection API
+* `http://locahost:30003/api//persons/<person_id>/connection` - Base path for Connection API
+* `http://locahost:30000/` - Frontend ReactJS Application
 
+You can see it on production:
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30001/` - OpenAPI Documentation
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30001/api/` - Base path for API
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30002/` - OpenAPI Documentation for Person API
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30002/api/persons` - Base path for Person API
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30003/` - OpenAPI Documentation for Connection API
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30003/api//persons/<person_id>/connection` - Base path for Connection API
+* `http://ec2-54-87-20-150.compute-1.amazonaws.com:30000/` - Frontend ReactJS Application
 #### Deployment Note
 You may notice the odd port numbers being served to `localhost`. [By default, Kubernetes services are only exposed to one another in an internal network](https://kubernetes.io/docs/concepts/services-networking/service/). This means that `udaconnect-app` and `udaconnect-api` can talk to one another. For us to connect to the cluster as an "outsider", we need to a way to expose these services to `localhost`.
 
@@ -140,12 +162,6 @@ This will enable you to connect to the database at `localhost`. You should then 
 To manually connect to the database, you will need software compatible with PostgreSQL.
 * CLI users will find [psql](http://postgresguide.com/utilities/psql.html) to be the industry standard.
 * GUI users will find [pgAdmin](https://www.pgadmin.org/) to be a popular open-source solution.
-
-## Architecture Diagrams
-Your architecture diagram should focus on the services and how they talk to one another. For our project, we want the diagram in a `.png` format. Some popular free software and tools to create architecture diagrams:
-1. [Lucidchart](https://www.lucidchart.com/pages/)
-2. [Google Docs](docs.google.com) Drawings (In a Google Doc, _Insert_ - _Drawing_ - _+ New_)
-3. [Diagrams.net](https://app.diagrams.net/)
 
 ## Tips
 * We can access a running Docker container using `kubectl exec -it <pod_id> sh`. From there, we can `curl` an endpoint to debug network issues.
