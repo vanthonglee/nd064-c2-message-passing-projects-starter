@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="qjKI_UF-VJTnI8fUkCdp" name="Page-1">
-        <mxGraphModel dx="1097" dy="261" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1743" dy="392" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -50,7 +50,7 @@
                         <mxPoint x="-27" y="7" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="60" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://kafka.apache.org/logos/kafka_logo--simple.png;" vertex="1" parent="20">
+                <mxCell id="60" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://kafka.apache.org/logos/kafka_logo--simple.png;" parent="20" vertex="1">
                     <mxGeometry x="11.5" y="2.5" width="117" height="65" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="PostgreSQL" style="html=1;dropTarget=0;" parent="1" vertex="1">
@@ -64,8 +64,18 @@
                 <mxCell id="52" style="edgeStyle=none;html=1;fontColor=#000000;startArrow=none;startFill=0;" parent="1" source="27" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="61" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="52">
+                    <mxGeometry x="-0.0894" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="56" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;startArrow=none;startFill=0;" parent="1" source="27" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="56">
+                    <mxGeometry x="-0.2311" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="27" value="Frontend Client" style="html=1;dropTarget=0;" parent="1" vertex="1">
                     <mxGeometry x="130" y="60" width="140" height="70" as="geometry"/>
@@ -75,7 +85,7 @@
                         <mxPoint x="-27" y="7" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;startArrow=none;startFill=0;strokeColor=default;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="29" target="25" edge="1">
+                <mxCell id="57" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;startArrow=classicThin;startFill=1;strokeColor=default;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="29" target="25" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="Persons API" style="html=1;dropTarget=0;" parent="1" vertex="1">
@@ -86,7 +96,7 @@
                         <mxPoint x="-27" y="7" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=none;html=1;fontColor=#000000;startArrow=none;startFill=0;" parent="1" source="31" target="25" edge="1">
+                <mxCell id="54" style="edgeStyle=none;html=1;fontColor=#000000;startArrow=classic;startFill=1;" parent="1" source="31" target="25" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="Connections API" style="html=1;dropTarget=0;" parent="1" vertex="1">
